@@ -4,6 +4,7 @@ import Header from './components/Header';
 import { Routes, Route } from 'react-router-dom'
 import styled from 'styled-components';
 import Sidebar from './components/Sidebar';
+import Chat from './components/Chat';
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
         <AppBody>
           <Sidebar />
           <Routes>   
-              <Route path = "/" />
+              <Route path = "/" element = { <Chat /> }/>
           </Routes>
         </AppBody>
     </div>
