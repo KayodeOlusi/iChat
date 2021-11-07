@@ -30,6 +30,7 @@ const Chat = () => {
 
     return ( 
         <ChatContainer>
+            <>
                 <Header>
                     <HeaderLeft>
                         <h4><strong># { roomDetails?.data().name }</strong></h4>
@@ -57,6 +58,7 @@ const Chat = () => {
                 </ChatMessages>
                
                 <ChatInput channelName = { roomDetails?.data().name } channelId = { roomId } chatRef = { chatRef } />
+            </>
         </ChatContainer>
      );
 }

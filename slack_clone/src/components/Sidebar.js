@@ -82,8 +82,8 @@ const SidebarInfo = styled.div`
     flex : 1;
 
     > h2 {
-        font-size: 15px;
-        font-weight: 900;
+        font-size: 14px;
+        font-weight: 700;
         margin-bottom: 5px;
     }
 

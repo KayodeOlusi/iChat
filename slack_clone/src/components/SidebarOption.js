@@ -48,6 +48,7 @@ const SidebarOptionContainer = styled.div`
     align-items : center;
     padding-left : 20px;
     cursor : pointer;
+    margin-bottom : 5px;
 
     :hover {
         opacity: 0.9;
