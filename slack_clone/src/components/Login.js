@@ -14,7 +14,7 @@ const Login = () => {
             <LoginInnerContainer>
                 <img src="https://images-platform.99static.com/Hrj0IDVBktRdEibybcXiOLqpgtE=/102x102:921x921/500x500/top/smart/99designs-contests-attachments/91/91476/attachment_91476002" alt="" />
 
-                <h3>Sign in into LetsChat</h3>
+                <h3>Sign in to LetsChat</h3>
 
                 <Button onClick = { signIn }>
                     Sign in with Google
