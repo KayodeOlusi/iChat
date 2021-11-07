@@ -1,5 +1,7 @@
 # LetsChat
 
+## A chat-app built with React.js, Redux, Firebase and styled-components
+
 ![](./public/images/Slack-3.png)
 
 #### Google log-in functionality
