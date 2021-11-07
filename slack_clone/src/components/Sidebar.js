@@ -3,14 +3,15 @@ import CreateIcon from '@mui/icons-material/Create';
 import CircleIcon from '@mui/icons-material/Circle';
 import SidebarOption from './SidebarOption';
 import { useCollection } from 'react-firebase-hooks/firestore';
-import { db } from '../firebase';
+import { auth, db } from '../firebase';
 import { query, collection } from '@firebase/firestore'
 import { Add, Apps, BookmarkBorder, Drafts, ExpandLess, ExpandMore, FileCopy, Inbox, InsertComment, PeopleAlt } from '@mui/icons-material';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const Sidebar = () => {
     const q = query(collection(db, "rooms"));
-    const [channels, loading, error] = useCollection(q)
-    console.log(channels)
+    const [ channels ] = useCollection(q)
+    const [user] = useAuthState(auth)
     
     return ( 
         <SidebarContainer>
@@ -19,7 +20,7 @@ const Sidebar = () => {
                     <h2>Wayne Enterprise</h2>
                     <h3>
                         <CircleIcon />
-                        Alex Bliss
+                        { user.displayName }
                     </h3>
                 </SidebarInfo>
                     <CreateIcon />
