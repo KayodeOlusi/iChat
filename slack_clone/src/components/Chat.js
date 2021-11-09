@@ -112,6 +112,5 @@ const HeaderRight = styled.div`
     }
 `;
 
-const ChatMessages = styled.div`
 
-`;
+
