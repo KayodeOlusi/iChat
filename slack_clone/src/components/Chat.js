@@ -15,9 +15,7 @@ const Chat = () => {
     const [ roomDetails ] = useDocument(
         roomId && doc(db, "rooms", roomId)
     )
-    const [ roomMessages, loading ] = useCollection(
-        roomId && query(collection(doc(db, "rooms", roomId), "messages"), orderBy("timestamp", "asc"))
-    )
+    const [ roomMessages, loading ] = useCollection(roomId && query(collection(doc(db, "rooms", roomId), "messages"), orderBy("timestamp", "asc")))
 
     useEffect(() => {
         chatRef?.current.scrollIntoView({
@@ -111,6 +109,8 @@ const HeaderRight = styled.div`
         font-size: 16px;
     }
 `;
+
+const ChatMessages = styled.div``;
 
 
 
