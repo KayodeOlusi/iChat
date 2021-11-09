@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import moment from 'moment'
 
+
 const Message = ({ message, timestamp, user, userImage }) => {
+    console.log(timestamp)
     return ( 
         <MessageContainer>
             <img src = { userImage } alt="" />
@@ -10,7 +12,7 @@ const Message = ({ message, timestamp, user, userImage }) => {
                 <h4>
                     { user }{" "}
                     <span>
-                        { moment(timestamp?.toDate()).calendar() }
+                         { moment(timestamp?.toDate()).calendar() }
                     </span>
                 </h4>
                 <p>{ message }</p>

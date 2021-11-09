@@ -56,6 +56,10 @@ const SidebarContainer = styled.div`
     max-width: 260px;
     margin-top: 60px;
     border-top: 1px sold #49274b;
+    overflow-y : scroll;
+    ::-webkit-scrollbar {
+        display: none;
+    }
 
     > hr {
         margin-top : 10px;

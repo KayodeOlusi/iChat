@@ -23,7 +23,7 @@ const Chat = () => {
         })
     }, [roomId, loading])
 
-    // console.log(roomDetails?.data())
+    console.log(roomDetails?.data())
     // console.log(roomMessages)
 
     return ( 
@@ -45,9 +45,10 @@ const Chat = () => {
                 <ChatMessages>
                     {
                         roomMessages?.docs.map(doc => {
-                            const { message, user, userImage } = doc.data()
+                            const { message, user, userImage, timestamp } = doc.data()
+                            console.log(doc.data())
                                 return (
-                                    <Message key = { doc.id } message = { message } user = { user } userImage = { userImage }  />
+                                    <Message key = { doc.id } message = { message } user = { user } userImage = { userImage } timestamp = { timestamp }  />
                             )
                         })
                     }
