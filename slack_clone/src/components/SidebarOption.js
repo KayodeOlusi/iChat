@@ -30,7 +30,7 @@ const SidebarOption = ({ Icon, title, addChannelOption, id }) => {
         <SidebarOptionContainer onClick = { addChannelOption ? addChannel : selectChannel }>
             { Icon && <Icon fontSize = 'small' style = {{ padding : 10 }} />}
             { Icon ? (
-                <h3>{ title }</h3>
+                <h3 className = "icon-title">{ title }</h3>
             ): (
                 <SidebarOptionChannel>
                     <span>#</span> { title }
@@ -49,6 +49,7 @@ const SidebarOptionContainer = styled.div`
     padding-left : 20px;
     cursor : pointer;
     margin-bottom : 5px;
+    
 
     :hover {
         opacity: 0.9;
@@ -62,9 +63,27 @@ const SidebarOptionContainer = styled.div`
     > h3 > span {
         padding : 15px
     }
+
+    @media (max-width: 740px) {
+        padding : 5px;
+        
+
+        > .icon-title {
+            display : none;
+        }
+    }
 `;
 
 const SidebarOptionChannel = styled.h3`
     pading : 10px 0;
     font-weight: 300px;
+
+    @media (max-width: 740px) {
+        font-size : 10px;
+        text-align: center;
+
+        > .tag {
+            display : block;
+        }
+    }
 `;

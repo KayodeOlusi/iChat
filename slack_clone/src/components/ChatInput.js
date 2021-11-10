@@ -5,6 +5,7 @@ import { doc, addDoc, collection, serverTimestamp } from '@firebase/firestore'
 import { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
+import { SendRounded } from '@mui/icons-material';
 
 const ChatInput = ({ channelName, channelId, chatRef }) => {
     const [input, setInput] = useState("")
@@ -35,9 +36,10 @@ const ChatInput = ({ channelName, channelId, chatRef }) => {
         <ChatInputContainer>
             <form>
                 <input value = { input } onChange = { e => setInput(e.target.value) } type = "text" placeholder = {` Message # ${ channelName ? channelName : "channel" } `}/>
-                <Button hidden type = "submit" onClick = { sendMessage }>
-                    Send
+                <Button type = "submit" onClick = { sendMessage } style = {{ fontSize : '11px' }}>
+                    <SendRounded />
                 </Button>
+                
             </form>
         </ChatInputContainer>
      );
@@ -65,6 +67,43 @@ const ChatInputContainer = styled.div`
     }
 
     > form > button {
-        display : none !important;
+        position : fixed;
+        bottom : 35px;
+        left : 93%;
+        color : var(--slack-color) !important;
+    }
+
+    input[type = text] {
+        overflow-wrap: break-word;
+        word-break: break-all;
+        white-space : nowrap;
+    }
+
+    @media (max-width: 740px) {
+        > form {
+            justify-content : left;
+            margin-left : 10px;
+        }
+
+        > form > input {
+            padding : 15px;
+            width : 60%;
+        }
+
+        > form > button {
+            position : fixed;
+            bottom : 35px;
+            left : 85%;
+        }
+
+        > form > input::-webkit-input-placeholder{
+            font-size : 10px;
+        }
+    }
+
+    @media (min-width: 741px) {
+        > form > button {
+            bottom : 40px !important;
+        }
     }
 `;

@@ -17,7 +17,7 @@ const Sidebar = () => {
         <SidebarContainer>
             <SidebarHeader>
                 <SidebarInfo>
-                    <h2>Wayne Enterprise</h2>
+                    <h2>Lets Chat</h2>
                     <h3>
                         <CircleIcon />
                         { user.displayName }
@@ -66,6 +66,10 @@ const SidebarContainer = styled.div`
         margin-bottom : 10px;
         border : 1px solid #49274b;
     }
+
+    @media (max-width: 740px) {
+        flex : 0.2;
+    }
 `;
 
 const SidebarHeader = styled.div`
@@ -79,6 +83,10 @@ const SidebarHeader = styled.div`
         font-size: 18px;
         background-color: white;
         border-radius: 999px;
+    }
+
+    @media (max-width: 740px) {
+        display : none;
     }
 `;
 

@@ -8,6 +8,7 @@ import { useDocument, useCollection } from 'react-firebase-hooks/firestore';
 import { doc, collection, orderBy, query } from '@firebase/firestore'
 import Message from './Message';
 import { useEffect, useRef } from 'react';
+import FlipMove from 'react-flip-move'
 
 const Chat = () => {
     const chatRef = useRef(null)
@@ -23,7 +24,7 @@ const Chat = () => {
         })
     }, [roomId, loading])
 
-    console.log(roomDetails?.data())
+    // console.log(roomDetails?.data())
     // console.log(roomMessages)
 
     return ( 
@@ -43,16 +44,18 @@ const Chat = () => {
                 </Header>
                
                 <ChatMessages>
-                    {
-                        roomMessages?.docs.map(doc => {
-                            const { message, user, userImage, timestamp } = doc.data()
-                            console.log(doc.data())
-                                return (
-                                    <Message key = { doc.id } message = { message } user = { user } userImage = { userImage } timestamp = { timestamp }  />
-                            )
-                        })
-                    }
-               
+                    
+                        {
+                            roomMessages?.docs.map(doc => {
+                                const { message, user, userImage, timestamp } = doc.data()
+                                    return (
+                                        <FlipMove>
+                                        <Message key = { doc.id } message = { message } user = { user } userImage = { userImage } timestamp = { timestamp }  />
+                                        </FlipMove>
+                                )
+                            })
+                        }
+                    
                     <ChatBottom ref = { chatRef } />
                 </ChatMessages>
                
@@ -80,6 +83,10 @@ const Header = styled.div`
     justify-content : space-between;
     padding 20px;
     border-bottom: 1px solid lightgray;
+
+    @media (max-width: 740px) {
+        padding : 5px;
+    }
 `;
 
 const HeaderLeft = styled.div`
@@ -96,6 +103,16 @@ const HeaderLeft = styled.div`
         margin-left : 10px;
         font-size : 10px;
     }
+
+    @media (max-width: 740px) {
+        > h4 {
+            font-size: 12px;
+        }
+    
+        > h4 > .MuiSvgIcon-root {
+            font-size : 8px;
+        }
+    }
 `;
 
 const HeaderRight = styled.div`
@@ -108,6 +125,10 @@ const HeaderRight = styled.div`
     > p > .MuiSvgIcon-root {
         margin-right : 5px !important;
         font-size: 16px;
+    }
+
+    @media (max-width: 740px) {
+        display : none;
     }
 `;
 

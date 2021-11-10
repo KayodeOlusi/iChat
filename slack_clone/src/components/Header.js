@@ -50,6 +50,12 @@ const HeaderLeft = styled.div`
         margin-left: auto;
         margin-right: 30px;
     }
+
+    @media (max-width: 740px) {
+        > .MuiSvgIcon-root {
+            display : none;
+        } 
+    }
 `;
 
 const HeaderAvatar = styled(Avatar)`
@@ -78,6 +84,10 @@ const HeaderSearch = styled.div`
         outline: 0;
         color: white;
     }
+
+    @media (max-width: 740px) {
+        display : none;
+    }
 `;
 
 const HeaderRight = styled.div`
@@ -88,5 +98,13 @@ const HeaderRight = styled.div`
     > .MuiSvgIcon-root{
         margin-left: auto;
         margin-right: 20px;
+    }
+
+    @media (max-width: 740px) {
+        display : none;
+
+        > .MuiSvgIcon-root {
+            display : none;
+        }
     }
 `;
